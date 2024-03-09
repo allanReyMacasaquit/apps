@@ -4,7 +4,6 @@ import data from './data.js';
 
 function App() {
 	const [people, setPeople] = useState(data);
-	console.log(people);
 
 	function clear() {
 		setPeople([]);
