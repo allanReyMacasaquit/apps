@@ -309,6 +309,7 @@ main {
 	line-height: 1.5;
 	color: var(--grey-500);
 	margin-bottom: 1.25rem;
+	text-align: justify;
 }
 .info-btn,
 .delete-btn {

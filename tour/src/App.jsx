@@ -8,6 +8,11 @@ function App() {
 	const [tours, setTours] = useState([]);
 	const [loading, setLoading] = useState(true);
 
+	const deleteTour = (id) => {
+		const newTour = tours.filter((tour) => tour.id !== id);
+		setTours(newTour);
+	};
+
 	const fetchTours = async () => {
 		setLoading(true);
 		try {
@@ -47,6 +52,9 @@ function App() {
 							<h5>{name}</h5>
 							<p>{info}</p>
 						</div>
+						<button className='btn btn-block' onClick={() => deleteTour(id)}>
+							Delete Tour
+						</button>
 					</article>
 				))}
 			</div>
