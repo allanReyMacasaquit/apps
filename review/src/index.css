@@ -258,10 +258,10 @@ main {
 	min-height: 100vh;
 	display: grid;
 	place-items: center;
+	overflow-y: hidden;
 }
 
 .review {
-	width: 90vw;
 	max-width: var(--fixed-width);
 	background: var(--white);
 	padding: 1.5rem 2rem;
@@ -328,6 +328,7 @@ main {
 	margin-bottom: 0.75rem;
 	line-height: 1.5;
 	color: var(--grey-600);
+	text-align: justify;
 }
 .prev-btn,
 .next-btn {
