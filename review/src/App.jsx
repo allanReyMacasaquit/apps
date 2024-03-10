@@ -7,17 +7,25 @@ function App() {
 	const [index, setIndex] = useState(0);
 	const { name, image, job, text } = reviews[index];
 
+	const checkNumber = (number) => {
+		const lastReview = reviews.length - 1;
+
+		if (number > lastReview) return 0;
+		if (number < 0) return lastReview;
+		return number;
+	};
+
 	const nextPerson = () => {
 		setIndex((currentIndex) => {
 			const newIndex = currentIndex + 1;
-			return newIndex;
+			return checkNumber(newIndex);
 		});
 	};
 
 	const prevPerson = () => {
 		setIndex((currentIndex) => {
-			const newIndex = currentIndex + 1;
-			return newIndex;
+			const newIndex = currentIndex - 1;
+			return checkNumber(newIndex);
 		});
 	};
 	return (
