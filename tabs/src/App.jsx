@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FaAngleDoubleRight } from 'react-icons/fa';
 import './App.css';
+import { v4 as uuidv4 } from 'uuid';
 
 const url = 'https://course-api.com/react-tabs-project';
 
@@ -43,7 +44,7 @@ function App() {
 	}
 
 	const { title, dates, company, duties } = job;
-
+	console.log('Generated UUID:', uuidv4());
 	return (
 		<section className='container'>
 			<article className='job-center'>
@@ -51,8 +52,8 @@ function App() {
 				<span className='job-company'>{company}</span>
 				<p className='job-date'>{dates}</p>
 				<div>
-					{duties.map((duty, index) => (
-						<div key={index} className='job-desc'>
+					{duties.map((duty) => (
+						<div key={uuidv4()} className='job-desc'>
 							<FaAngleDoubleRight className='job-icon'></FaAngleDoubleRight>
 							<p>{duty}</p>
 						</div>
