@@ -148,6 +148,10 @@ ul {
 	text-transform: capitalize;
 	display: inline-block;
 }
+.btn:active,
+.btn.active {
+	background-color: #842029;
+}
 .btn:hover {
 	background: var(--primary-700);
 	box-shadow: var(--shadow-3);

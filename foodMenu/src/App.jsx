@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import Title from './components/Title';
 import menus from './data';
@@ -5,6 +6,13 @@ import menus from './data';
 const getCategories = ['all', ...new Set(menus.map((item) => item.category))];
 
 function App() {
+	const [selectedCategory, setSelectedCategory] = useState('all');
+
+	const filteredMenus =
+		selectedCategory === 'all'
+			? menus
+			: menus.filter((item) => item.category === selectedCategory);
+
 	return (
 		<main>
 			<section className='menu'>
@@ -12,14 +20,18 @@ function App() {
 
 				<div className='btn-container'>
 					{getCategories.map((category) => (
-						<button type='button' key={category} className='btn'>
+						<button
+							key={category}
+							className={`btn ${category === selectedCategory ? 'active' : ''}`}
+							onClick={() => setSelectedCategory(category)}
+						>
 							{category}
 						</button>
 					))}
 				</div>
 
 				<div className='section-center'>
-					{menus.map(({ id, title, img, price, desc }) => (
+					{filteredMenus.map(({ id, title, img, price, desc }) => (
 						<article key={id}>
 							<img src={img} alt={title} className='img' />
 							<div className='item-info'>
