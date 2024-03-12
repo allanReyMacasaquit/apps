@@ -3,7 +3,10 @@ import './App.css';
 import Title from './components/Title';
 import menus from './data';
 
-const getCategories = ['all', ...new Set(menus.map((item) => item.category))];
+const uniqueCategories = [
+	'all',
+	...new Set(menus.map((item) => item.category)),
+];
 
 function App() {
 	const [selectedCategory, setSelectedCategory] = useState('all');
@@ -13,17 +16,21 @@ function App() {
 			? menus
 			: menus.filter((item) => item.category === selectedCategory);
 
+	const onClickCategory = (category) => {
+		setSelectedCategory(category);
+	};
+
 	return (
 		<main>
 			<section className='menu'>
 				<Title title='our menu' />
 
 				<div className='btn-container'>
-					{getCategories.map((category) => (
+					{uniqueCategories.map((category) => (
 						<button
 							key={category}
 							className={`btn ${category === selectedCategory ? 'active' : ''}`}
-							onClick={() => setSelectedCategory(category)}
+							onClick={() => onClickCategory(category)}
 						>
 							{category}
 						</button>
