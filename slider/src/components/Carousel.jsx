@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useRef } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { longList } from '../data';
 import { FaQuoteRight } from 'react-icons/fa';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
@@ -21,20 +21,20 @@ const Carousel = () => {
 	const handleMouseEnter = () => {
 		clearInterval(sliderIdRef.current);
 		sliderIdRef.current = null;
-		console.log('Mouse entered. sliderIdRef:', sliderIdRef.current);
+		// console.log('Mouse entered. sliderIdRef:', sliderIdRef.current);
 	};
 
 	const handleMouseLeave = () => {
 		if (!sliderIdRef.current) {
 			startInterval();
-			console.log('Mouse left. sliderIdRef:', sliderIdRef.current);
+			// console.log('Mouse left. sliderIdRef:', sliderIdRef.current);
 		}
 	};
 
 	const startInterval = useCallback(() => {
 		if (!sliderIdRef.current) {
 			sliderIdRef.current = setInterval(() => {
-				console.log('Interval callback. sliderIdRef:', sliderIdRef.current);
+				// console.log('Interval callback. sliderIdRef:', sliderIdRef.current);
 				nextSlideCallback();
 			}, 5000);
 		}
@@ -44,7 +44,7 @@ const Carousel = () => {
 		startInterval();
 		return () => {
 			clearInterval(sliderIdRef.current);
-			console.log('Interval cleared. sliderIdRef:', sliderIdRef.current);
+			// console.log('Interval cleared. sliderIdRef:', sliderIdRef.current);
 		};
 	}, [startInterval]);
 
