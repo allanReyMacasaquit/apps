@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { longList } from '../data';
 import { FaQuoteRight } from 'react-icons/fa';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
@@ -6,29 +6,54 @@ import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 const Carousel = () => {
 	const [people, setPeople] = useState(longList);
 	const [currentPerson, setCurrentPerson] = useState(0);
+	const sliderIdRef = useRef(null);
 
-	const prevSlide = () => {
+	const prevSlide = useCallback(() => {
 		setCurrentPerson(
 			(oldPerson) => (oldPerson - 1 + people.length) % people.length
 		);
-	};
+	}, [people.length]);
 
-	// Memoize the nextSlide function using useCallback
-	const nextSlide = useCallback(() => {
+	const nextSlideCallback = useCallback(() => {
 		setCurrentPerson((oldPerson) => (oldPerson + 1) % people.length);
 	}, [people.length]);
 
+	const handleMouseEnter = () => {
+		clearInterval(sliderIdRef.current);
+		sliderIdRef.current = null;
+		console.log('Mouse entered. sliderIdRef:', sliderIdRef.current);
+	};
+
+	const handleMouseLeave = () => {
+		if (!sliderIdRef.current) {
+			startInterval();
+			console.log('Mouse left. sliderIdRef:', sliderIdRef.current);
+		}
+	};
+
+	const startInterval = useCallback(() => {
+		if (!sliderIdRef.current) {
+			sliderIdRef.current = setInterval(() => {
+				console.log('Interval callback. sliderIdRef:', sliderIdRef.current);
+				nextSlideCallback();
+			}, 5000);
+		}
+	}, [nextSlideCallback]);
+
 	useEffect(() => {
-		let sliderId = setInterval(() => {
-			nextSlide();
-		}, 5000);
+		startInterval();
 		return () => {
-			clearInterval(sliderId);
+			clearInterval(sliderIdRef.current);
+			console.log('Interval cleared. sliderIdRef:', sliderIdRef.current);
 		};
-	}, [nextSlide]);
+	}, [startInterval]);
 
 	return (
-		<section className='slider-container'>
+		<section
+			className='slider-container'
+			onMouseEnter={handleMouseEnter}
+			onMouseLeave={handleMouseLeave}
+		>
 			{people.map((person, personIndex) => {
 				const { id, image, name, title, quote } = person;
 				return (
@@ -49,13 +74,16 @@ const Carousel = () => {
 					</article>
 				);
 			})}
-
-			<button type='button' className='prev' onClick={prevSlide}>
-				<FiChevronLeft />
-			</button>
-			<button type='button' className='next' onClick={nextSlide}>
-				<FiChevronRight />
-			</button>
+			{people.length > 1 && (
+				<>
+					<button type='button' className='prev' onClick={prevSlide}>
+						<FiChevronLeft />
+					</button>
+					<button type='button' className='next' onClick={nextSlideCallback}>
+						<FiChevronRight />
+					</button>
+				</>
+			)}
 		</section>
 	);
 };
