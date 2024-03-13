@@ -1,11 +1,7 @@
-import './App.css';
+import Carousel from './components/Carousel';
 
 function App() {
-	return (
-		<main>
-			<h1>Carousel</h1>
-		</main>
-	);
+	return <Carousel />;
 }
 
 export default App;
