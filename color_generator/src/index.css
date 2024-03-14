@@ -266,7 +266,7 @@ ul {
 }
 input[type='text'] {
 	border-color: transparent;
-	padding: 0.5rem 1rem;
+	padding: 0.5rem 3rem;
 	font-size: 1.25rem;
 	max-width: 200px;
 }
@@ -276,6 +276,7 @@ input[type='color'] {
 	border-color: var(--white);
 }
 .container .btn {
+	margin-left: 3px;
 	border-radius: 0;
 	border-top-right-radius: var(--borderRadius);
 	border-bottom-right-radius: var(--borderRadius);
