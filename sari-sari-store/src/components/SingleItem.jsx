@@ -1,18 +1,17 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
-const SingleItem = ({ item, removeItem }) => {
-	const [isChecked, setIsChecked] = useState(item.completed);
+
+const SingleItem = ({ item, removeItem, editItem }) => {
 	return (
 		<div className='single-item'>
 			<input
 				type='checkbox'
-				checked={isChecked}
-				onChange={() => setIsChecked(!isChecked)}
+				checked={item.completed}
+				onChange={() => editItem(item.id)}
 			/>
 			<p
 				style={{
 					textTransform: 'capitalize',
-					textDecoration: isChecked && 'line-through',
+					textDecoration: item.completed && 'line-through',
 				}}
 			>
 				{item.name}
@@ -29,7 +28,12 @@ const SingleItem = ({ item, removeItem }) => {
 };
 
 SingleItem.propTypes = {
-	item: PropTypes.string.isRequired,
+	item: PropTypes.shape({
+		id: PropTypes.string.isRequired,
+		name: PropTypes.string.isRequired,
+		completed: PropTypes.bool.isRequired,
+	}).isRequired,
 	removeItem: PropTypes.func.isRequired,
+	editItem: PropTypes.func.isRequired,
 };
 export default SingleItem;
