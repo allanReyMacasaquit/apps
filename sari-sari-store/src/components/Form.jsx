@@ -1,11 +1,14 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const Form = () => {
+const Form = ({ addItem }) => {
 	const [inputText, setInputText] = useState('');
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(inputText);
+		if (!inputText) return;
+		addItem(inputText);
+		setInputText('');
 	};
 	return (
 		<form onSubmit={handleSubmit}>
@@ -24,4 +27,9 @@ const Form = () => {
 		</form>
 	);
 };
+
+Form.propTypes = {
+	addItem: PropTypes.func.isRequired,
+};
+
 export default Form;
