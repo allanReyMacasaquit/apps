@@ -4,6 +4,10 @@ import Form from './components/Form';
 import { nanoid } from 'nanoid';
 import Items from './components/Items';
 
+const setLocalStorage = (items) => {
+	localStorage.setItem('list', JSON.stringify(items));
+};
+
 function App() {
 	const [items, setItems] = useState([]);
 
@@ -13,12 +17,15 @@ function App() {
 			completed: false,
 			id: nanoid(),
 		};
-		setItems([...items, newItem]);
+		const newItems = [...items, newItem];
+		setItems(newItems);
+		setLocalStorage(newItems);
 	};
 
 	const removeItem = (itemId) => {
 		const newItem = items.filter((item) => item.id !== itemId);
 		setItems(newItem);
+		setLocalStorage(newItem);
 	};
 
 	return (
