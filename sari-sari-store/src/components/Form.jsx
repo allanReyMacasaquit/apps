@@ -1,12 +1,16 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 
 const Form = ({ addItem }) => {
 	const [inputText, setInputText] = useState('');
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (!inputText) return;
+		if (!inputText) {
+			toast.error('Please provide input value');
+			return;
+		}
 		addItem(inputText);
 		setInputText('');
 	};
