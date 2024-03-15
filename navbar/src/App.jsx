@@ -1,10 +1,10 @@
-import Navbar from './assets/components/Navbar';
+import Navbar from './components/Navbar';
 
 function App() {
 	return (
-		<section>
+		<main>
 			<Navbar />
-		</section>
+		</main>
 	);
 }
 
