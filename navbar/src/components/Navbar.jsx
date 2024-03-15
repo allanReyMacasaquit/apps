@@ -1,7 +1,29 @@
-import { FaBars, FaTimes } from 'react-icons/fa';
+import {
+	FaBars,
+	FaFacebook,
+	FaInstagram,
+	FaLinkedin,
+	FaTimes,
+	FaTwitter,
+} from 'react-icons/fa';
 import logo from '../assets/logo.svg';
-import { links } from '../data';
+import { links, social } from '../data';
 import { useRef, useState } from 'react';
+
+const getIconComponent = (iconName) => {
+	switch (iconName) {
+		case 'FaTwitter':
+			return <FaTwitter />;
+		case 'FaFacebook':
+			return <FaFacebook />;
+		case 'FaInstagram':
+			return <FaInstagram />;
+		case 'FaLinkedin':
+			return <FaLinkedin />;
+		default:
+			return null;
+	}
+};
 
 const Navbar = () => {
 	const [showLinks, setShowLinks] = useState(false);
@@ -42,6 +64,13 @@ const Navbar = () => {
 						))}
 					</ul>
 				</div>
+				<ul className='social-icons'>
+					{social.map(({ id, url, icon }) => (
+						<li key={id}>
+							<a href={url}>{getIconComponent(icon)}</a>
+						</li>
+					))}
+				</ul>
 			</div>
 		</nav>
 	);
