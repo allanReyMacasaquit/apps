@@ -3,7 +3,6 @@ import { useGlobalContext } from '../context/appProvider';
 
 const Navbar = () => {
 	const { openSidebar } = useGlobalContext();
-	console.log(openSidebar);
 	return (
 		<nav>
 			<div className='nav-center'>

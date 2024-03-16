@@ -1,14 +1,3 @@
-import {
-	Fa500Px,
-	FaAccusoft,
-	FaAdversal,
-	FaAvianex,
-	FaBitcoin,
-	FaBtc,
-	FaCodiepie,
-	FaDocker,
-	FaGithubSquare,
-} from 'react-icons/fa';
 import { nanoid } from 'nanoid';
 
 const sublinks = [
@@ -19,19 +8,19 @@ const sublinks = [
 			{
 				id: nanoid(),
 				label: 'community',
-				icon: <Fa500Px />,
+				icon: 'Fa500Px',
 				url: '/product/community',
 			},
 			{
 				id: nanoid(),
 				label: 'content',
-				icon: <FaAccusoft />,
+				icon: 'FaAccusoft',
 				url: '/product/content',
 			},
 			{
 				id: nanoid(),
 				label: 'roles',
-				icon: <FaAdversal />,
+				icon: 'FaAdversal',
 				url: '/product/roles',
 			},
 		],
@@ -43,25 +32,25 @@ const sublinks = [
 			{
 				id: nanoid(),
 				label: 'developers',
-				icon: <FaAvianex />,
+				icon: 'FaAvianex',
 				url: '/solutions/developers',
 			},
 			{
 				id: nanoid(),
 				label: 'content managers',
-				icon: <FaBitcoin />,
+				icon: 'FaBitcoin',
 				url: '/solutions/content-managers',
 			},
 			{
 				id: nanoid(),
 				label: 'business teams',
-				icon: <FaBtc />,
+				icon: 'FaCodiepie',
 				url: '/solutions/business teams',
 			},
 			{
 				id: nanoid(),
 				label: 'ecommerce',
-				icon: <FaCodiepie />,
+				icon: 'FaCodiepie',
 				url: '/solutions/ecommerce',
 			},
 		],
@@ -73,13 +62,13 @@ const sublinks = [
 			{
 				id: nanoid(),
 				label: 'starters',
-				icon: <FaDocker />,
+				icon: 'FaDocker',
 				url: '/resources/starters',
 			},
 			{
 				id: nanoid(),
 				label: 'showcase',
-				icon: <FaGithubSquare />,
+				icon: 'FaGithubSquare',
 				url: '/resources/showcase',
 			},
 		],
