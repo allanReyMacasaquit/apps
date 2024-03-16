@@ -17,13 +17,13 @@ export const useAppProvider = () => {
 		setIsSidebarOpen(true);
 	};
 	const closeSidebar = () => {
-		setIsSidebarOpen(true);
+		setIsSidebarOpen(false);
 	};
 	const openModal = () => {
 		setIsModalOpen(true);
 	};
 	const closeModal = () => {
-		setIsModalOpen(true);
+		setIsModalOpen(false);
 	};
 
 	return {
