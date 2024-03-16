@@ -274,7 +274,7 @@ main {
 	border-color: transparent;
 	color: var(--primary-500);
 	cursor: pointer;
-	animation: bounce 2s ease-in-out infinite;
+	animation: bounce 2s ease-in-out;
 }
 
 @keyframes bounce {
@@ -282,7 +282,7 @@ main {
 		transform: scale(1);
 	}
 	50% {
-		transform: scale(1.5);
+		transform: scale(1.2);
 	}
 	100% {
 		transform: scale(1);
