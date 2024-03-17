@@ -416,11 +416,11 @@ Nav Links
 .nav-links {
 	display: none;
 }
+
 @media screen and (min-width: 992px) {
 	.nav-links {
 		display: flex;
 		justify-content: center;
-
 		align-self: stretch;
 	}
 	.nav-center {
@@ -438,6 +438,9 @@ Nav Links
 		letter-spacing: var(--letterSpacing);
 		cursor: pointer;
 	}
+	.nav-link:hover {
+		color: #0f172a;
+	}
 }
 
 /* 
@@ -452,7 +455,7 @@ Submenu
 	.submenu {
 		display: block;
 		position: fixed;
-		top: 7rem;
+		top: 5rem;
 		left: 50%;
 		width: var(--fluid-width);
 		max-width: var(--max-width);
