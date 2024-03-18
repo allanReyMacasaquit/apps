@@ -1,12 +1,21 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useReducer } from 'react';
+import reducer from './reducer/reducer.jsx';
+import cartItems from '../data.js';
 
 const AppContext = createContext();
 
+const cart = new Map(cartItems.map((item) => [item.id, item]));
+
+const initialState = {
+	loading: false,
+	cart: cart,
+};
+
 export const AppProvider = ({ children }) => {
-	const greeting = 'hello';
+	const [state, dispatch] = useReducer(reducer, initialState);
 
 	return (
-		<AppContext.Provider value={{ greeting }}>{children}</AppContext.Provider>
+		<AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
 	);
 };
 
