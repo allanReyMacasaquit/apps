@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer } from 'react';
 import reducer from './reducer/reducer.jsx';
 import cartItems from '../data.js';
-import { CLEAR_CART } from './action/action.jsx';
+import { CLEAR_CART, REMOVE } from './action/action.jsx';
 
 const AppContext = createContext();
 
@@ -18,9 +18,12 @@ export const AppProvider = ({ children }) => {
 	const clearCart = () => {
 		dispatch({ type: CLEAR_CART });
 	};
+	const remove = (id) => {
+		dispatch({ type: REMOVE, payload: { id } });
+	};
 
 	return (
-		<AppContext.Provider value={{ ...state, clearCart }}>
+		<AppContext.Provider value={{ ...state, clearCart, remove }}>
 			{children}
 		</AppContext.Provider>
 	);
