@@ -1,7 +1,8 @@
+import cartItems from '../data';
 import CartItem from './CartItem';
 
 const CartContainer = () => {
-	const cartArray = [...CartItem];
+	const cartArray = [...cartItems];
 
 	if (cartArray.length === 0) {
 		return (
