@@ -1,4 +1,3 @@
-import cartItems from '../data';
 import CartItem from './CartItem';
 import { useGlobalContext } from '../context/AppContext.jsx';
 

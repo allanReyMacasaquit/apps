@@ -402,6 +402,7 @@ Cart Item
 }
 .amount-icon:hover {
 	color: var(--primary-700);
+	transform: scale(107%);
 }
 .amount {
 	font-size: 1.25rem;
