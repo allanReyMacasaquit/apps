@@ -2,7 +2,7 @@ import { links } from '../data';
 
 const Navbar = () => {
 	return (
-		<nav className='bg-gradient-to-t from-emerald-50 to-emerald-300'>
+		<nav className='sticky top-0 z-10 bg-gradient-to-t from-emerald-50 to-emerald-300 h-[10vh]'>
 			<div className='mx-auto max-w-7xl px-8 py-4 flex flex-col sm:flex-row sm:justify-between sm:gap-x-16 sm:items-center sm:py-8'>
 				<h2 className='text-3xl font-bold'>
 					Web<span className='text-emerald-600'>Dev</span>

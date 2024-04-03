@@ -9,7 +9,10 @@ const socialIcons = [
 
 const Hero = () => {
 	return (
-		<div className='bg-gradient-to-b from-emerald-100 to-emerald-300 py-20'>
+		<div
+			className='bg-gradient-to-b from-emerald-100 to-emerald-300 py-32 h-[100vh]'
+			id='home'
+		>
 			<div className='mx-auto max-w-7xl px-8 grid md:grid-cols-2 items-center gap-8'>
 				<article>
 					<h1 className='text-5xl sm:text-7xl font-bold tracking-wider'>
