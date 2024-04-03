@@ -24,9 +24,7 @@ const Hero = () => {
 					<div className='flex gap-x-4 mt-4'>
 						{socialIcons.map(({ id, href, icon }) => (
 							<a href={href} key={id}>
-								<span className='h-8 w-8 text-slate-500 hover:text-black duration-300'>
-									{icon}
-								</span>
+								<span className='icon-size'>{icon}</span>
 							</a>
 						))}
 					</div>
